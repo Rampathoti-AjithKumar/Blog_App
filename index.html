@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand">Blog App</div>
+    <div class="nav-right">
+      <span id="userWelcome" class="user-welcome"></span>
+      <button id="logoutBtn" class="btn btn-dark hidden">Logout</button>
+    </div>
+  </nav>
+
+  <main>
+    <section id="authContainer" class="auth-section">
+      <div class="auth-card">
+        <div class="auth-heading">
+          <span class="eyebrow">PERSONAL BLOG</span>
+          <h1 id="authTitle">Welcome back</h1>
+          <p id="authSubtitle">Sign in to share your thoughts and see what others are posting.</p>
+        </div>
+
+        <div id="loginBox">
+          <form id="loginForm">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email" required>
+
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="Enter your password" autocomplete="current-password" required>
+
+            <button type="submit" class="btn btn-primary">Sign In</button>
+          </form>
+
+          <p class="switch-text">Don't have an account? <button type="button" class="text-btn" id="showRegisterBtn">Sign Up</button></p>
+        </div>
+
+        <div id="registerBox" class="hidden">
+          <form id="registerForm">
+            <label for="registerUsername">Username</label>
+            <input type="text" id="registerUsername" placeholder="Enter username" autocomplete="username" required>
+
+            <label for="registerEmail">Email</label>
+            <input type="email" id="registerEmail" placeholder="you@example.com" autocomplete="email" required>
+
+            <label for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" placeholder="At least 5 characters" autocomplete="new-password" required>
+
+            <button type="submit" class="btn btn-primary">Create Account</button>
+          </form>
+
+          <p class="switch-text">Already have an account? <button type="button" class="text-btn" id="showLoginBtn">Sign In</button></p>
+        </div>
+
+        <p id="authMessage" class="message"></p>
+      </div>
+    </section>
+
+    <section id="appContainer" class="app-section hidden">
+      <div class="feed-layout">
+        <aside class="side-card">
+          <div class="profile-mini">
+            <div id="avatar" class="avatar">B</div>
+            <div>
+              <strong id="sidebarUsername">User</strong>
+              <span>Blog member</span>
+            </div>
+          </div>
+          <div class="side-divider"></div>
+          <p class="side-note">Share a thought, upload a photo or video, and join the conversation.</p>
+        </aside>
+
+        <div class="feed-column">
+          <section class="create-post card">
+            <div class="card-header">
+              <div>
+                <h2>Create a post</h2>
+                <p>What's on your mind?</p>
+              </div>
+            </div>
+
+            <form id="postForm">
+              <textarea id="caption" maxlength="500" placeholder="Write something..."></textarea>
+              <div class="post-tools">
+                <label class="file-label" for="mediaInput">Choose image/video</label>
+                <input type="file" id="mediaInput" accept="image/*,video/*" required>
+                <button type="submit" class="btn btn-primary">Publish</button>
+              </div>
+              <p id="postMessage" class="message"></p>
+            </form>
+          </section>
+
+          <div class="feed-title-row">
+            <div>
+              <h2>Latest posts</h2>
+              <p>Updates appear here automatically.</p>
+            </div>
+            <span id="connectionStatus" class="status-pill">Connecting...</span>
+          </div>
+
+          <div id="postsContainer"></div>
+          <div id="emptyState" class="empty-state hidden">No posts yet. Be the first to share something.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Made by Ajithkumar</footer>
+
+  <script src="http://localhost:5000/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
