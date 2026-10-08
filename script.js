@@ -1,5 +1,5 @@
 const API_BASE = "http://localhost:5000/api";
-const SERVER_BASE = "http://localhost:5000";
+const SERVER_BASE = "https://blogapp-production-3bcf.up.railway.app";
 
 const tokenKey = "blogToken";
 const userKey = "blogUser";
